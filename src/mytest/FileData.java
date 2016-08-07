@@ -58,15 +58,77 @@ public class FileData {
 	private static String computeResultLine(String searchQuery, List<String> manufacturers) {
 		 String resultLine = searchQuery;
 		 resultLine = resultLine +";";
+		 
+		 /*
+		  * Manufacturer ?
+		  */
 		 if (containsManufacturer(searchQuery, manufacturers)){
+		         resultLine = resultLine + "1";
+	
+		 } else { 
+		         resultLine = resultLine + "0";
+		 }
+		 resultLine = resultLine +";";
+		 
+		 /*
+		  * EAN ?
+		  */
+		 if (containsEAN(searchQuery)){
 		         resultLine = resultLine + "1";
 		 } else { 
 		         resultLine = resultLine + "0";
 		 }
-		return resultLine;
+		 
+		    return resultLine;
 	}
 		 
 		 
+	private static boolean containsEAN(String searchQuery) {
+		
+		/*
+		 * Split into words
+		 */
+		String[] words = searchQuery.split(" ");
+		for(String word:words){
+			int length = word.length();
+			
+			if(13==length && containsOnlyDigits(word)) {
+				return  true;
+			   
+			}
+			
+		}
+		
+		return false;
+		/*
+		 * Is a word contains 13 characters?
+		 * .length()
+		 * 
+		 */
+		
+	}
+
+	private static boolean containsOnlyDigits(String word) {
+		char[] characters = word.toCharArray();
+		for (char character : characters) {
+			  if(!Character.isDigit(character)){
+			  
+				  return false;
+				  
+				  
+			  }
+ 
+		       		       
+		}
+		return true;
+	}
+	               
+		                 
+//		         return false;
+		 
+	
+	
+
 	private static boolean containsManufacturer(String searchQuery, List<String> manufacturers) {		
 		
 		String[] words = searchQuery.split(" ");
@@ -167,7 +229,7 @@ public class FileData {
 			FileOutputStream fos = new FileOutputStream(destinationFile);
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
 			
-			bw.write("search query;contains manufacturer");
+			bw.write("search query;contains manufacturer;contains EAN");
 			bw.newLine();
 			
 			// programma  vivodit file na displey

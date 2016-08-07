@@ -6,7 +6,7 @@ public class StringExercise {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String testString = "Good Morning! ";
+		String testString = "Good 1st 3Morpiofjpgpjrfning! ";
 		testString = testString.trim();
 		
 		String testString2 = "Good morning!";
@@ -19,12 +19,22 @@ public class StringExercise {
 		
 		
 		System.out.println(testString.toLowerCase());
-		
+		System.out.println(testString.length());
 		
 		
 		String blankTestString = "  ";
 		blankTestString = blankTestString.trim();
 		System.out.println("'"+blankTestString+"'");
+		
+		
+		char[] characters = testString.toCharArray();
+		for (char character : characters) {
+			
+			System.out.println(Character.isDigit(character));
+		}
+		
+		
+		
 	}
 
 }
