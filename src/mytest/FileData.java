@@ -67,31 +67,21 @@ public class FileData {
 	}
 		 
 		 
-	private static boolean containsManufacturer(String searchQuery, List<String> manufacturers) {				
+	private static boolean containsManufacturer(String searchQuery, List<String> manufacturers) {		
+		
+		String[] words = searchQuery.split(" ");
+		
 		for (String manufacturer : manufacturers) {
-			String[] words = searchQuery.split(" ");
 			for (String word : words) {
-				
+				if( manufacturer.equals(word)){
+					return true;
+				}
 			}
 		
-			String SearchQuery = "contains";
-			searchQuery = searchQuery.trim();  		
-			if (searchQuery.contains(manufacturer)){
-				System.out.println(searchQuery+"   contains    " + manufacturer);
-				/*    
-				 * Example: ate        
-				 *                    
-				 * swiatel -> NO   
-				 * 
-				 * swi ate l -> YES  
-				 */   
-				    
-		          return true;     
-			}   
 		}  
 		                             
 		return false;
-	   }
+   }
 	
 	
 
