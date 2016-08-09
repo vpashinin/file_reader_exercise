@@ -6,13 +6,13 @@ public class StringExercise {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String testString = "Good 1st 3Morpiofjpgpjrfning! ";
+		String testString = "Good 1st 3Morpiofjpg66785884736553  pjrfning! ";
 		testString = testString.trim();
 		
 		String testString2 = "Good morning!";
 		System.out.println("'"+testString+"'");
-		
-		
+	
+		 
 		if (testString.equals(testString2)) {
 			System.out.println("Yes, they are equal.");
 		}
@@ -21,6 +21,7 @@ public class StringExercise {
 		System.out.println(testString.toLowerCase());
 		System.out.println(testString.length());
 		
+	
 		
 		String blankTestString = "  ";
 		blankTestString = blankTestString.trim();
